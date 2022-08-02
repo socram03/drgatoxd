@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import { Container, Heading, HStack, Link, Text, SlideFade, Tooltip } from '@chakra-ui/react';
+import { Container, Heading, HStack, Link, Text, SlideFade, Tooltip, Box } from '@chakra-ui/react';
 import { Icon } from '../components/Icon';
 import Head from 'next/head';
 import { socials } from '../socials';
@@ -8,8 +8,8 @@ const Home: NextPage = () => {
 	return (
 		<div>
 			<Head>
-				<title>Inicio - drgato</title>
-				<link rel="icon" href="/favicon.ico" />
+				<title>Home - drgato</title>
+				<link rel="icon" href="/cat.png" />
 			</Head>
 			<Container
 				px={5}
@@ -20,9 +20,31 @@ const Home: NextPage = () => {
 				alignItems={['left', 'left', 'center']}
 				gap={3}
 			>
-				<Heading as={'h1'} fontSize="6xl" lineHeight="1" fontWeight="extrabold">
-					Mathías Gómez
-				</Heading>
+				<Box position="relative">
+					<Heading
+						animation=".5s .5s ease shadowAnimation forwards"
+						as={'span'}
+						fontSize="6xl"
+						lineHeight="1"
+						fontWeight="extrabold"
+						color="transparent"
+						style={{ WebkitTextStroke: '1px gray' }}
+						position="absolute"
+						zIndex={-1}
+						className="animation-forwards"
+					>
+						Mathías Gómez
+					</Heading>
+					<Heading
+						as={'h1'}
+						fontSize="6xl"
+						lineHeight="1"
+						fontWeight="extrabold"
+						animation="5s linear hueRotate infinite"
+					>
+						Mathías Gómez
+					</Heading>
+				</Box>
 				<Text color="#afafaf" fontSize="xl">
 					Self taught programmer, working on{' '}
 					<Link
@@ -40,11 +62,11 @@ const Home: NextPage = () => {
 					{socials.map(([id, href], i) => (
 						<SlideFade key={`social-${i}`} in delay={i / 20}>
 							<Tooltip color="white" bg="black" label={capitalize(id)}>
-								<a className="link" href={href}>
+								<Link target="_blank" rel="noreferrer" className="link" href={href}>
 									<span>
 										<Icon className="header link" type="brands" id={id} />
 									</span>
-								</a>
+								</Link>
 							</Tooltip>
 						</SlideFade>
 					))}

@@ -5,6 +5,7 @@ import { customTheme } from '../theme';
 import Particles from 'react-tsparticles';
 import { loadFull } from 'tsparticles';
 import { Navbar } from '../components/Navbar';
+import NextNProgress from 'nextjs-progressbar';
 
 function MyApp({ Component, pageProps }: AppProps) {
 	const particlesInit = async (main: any) => {
@@ -53,6 +54,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 					detectRetina: true
 				}}
 			/>
+			<NextNProgress color="-webkit-linear-gradient(-70deg, #faa2a2 0%, #ffb764 100%)" />
 			<Navbar />
 			<Component {...pageProps} />
 		</ChakraProvider>

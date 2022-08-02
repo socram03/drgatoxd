@@ -2,6 +2,17 @@
 @import url('https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css');
 @import url('http://fonts.cdnfonts.com/css/cascadia-code');
 
+* {
+	user-select: none;
+	-webkit-user-drag: none;
+}
+
+::-webkit-scrollbar {
+	width: 1px;
+	height: 1px;
+	background: #000;
+}
+
 .link {
 	cursor: pointer;
 }
@@ -15,8 +26,19 @@
 	text-shadow: 0 0 20px #0f0;
 }
 
+.header.link:active {
+	scale: 0.7;
+}
+
 h1 {
 	background: -webkit-linear-gradient(-70deg, #a2facf 0%, #64acff 100%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+h2 {
+	background: -webkit-linear-gradient(-70deg, #faa2a2 0%, #ffb764 100%);
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
@@ -33,16 +55,16 @@ h1 {
 	bottom: 0;
 	left: 0;
 	width: 0%;
-	height: 1px;
-	background-color: #000;
+	height: 2px;
+	background: -webkit-linear-gradient(-70deg, #a2facf 0%, #64acff 100%);
 	transition: 0.3s ease all;
-	top: 65%;
+	top: 100%;
 }
 
 .link-under:hover::after {
 	height: 2px;
 	width: 100%;
-	background-color: #fff;
+	filter: hue-rotate(180deg);
 }
 
 .git-icon {
@@ -60,4 +82,19 @@ h1 {
 
 .skill-hover:hover .git-icon-circle {
 	fill: #dadfe9 !important;
+}
+
+@keyframes hueRotate {
+	0% {
+		filter: hue-rotate(0deg);
+	}
+	100% {
+		filter: hue-rotate(360deg);
+	}
+}
+
+@keyframes shadowAnimation {
+	100% {
+		transform: translate(2px, 5px);
+	}
 }

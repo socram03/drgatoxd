@@ -14,10 +14,16 @@ const theme: Partial<Theme> = {
 		global: {
 			body: {
 				minH: '100vh',
-				bg: '#040d21'
+				bg: '#14171e'
 			}
 		}
 	}
 };
 
 export const customTheme = extendTheme(theme);
+
+export const langColors = {
+	TypeScript: 'blue',
+	JavaScript: 'yellow',
+	CSS: 'purple'
+};
