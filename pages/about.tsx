@@ -6,12 +6,11 @@ import {
 	ListItem,
 	Spinner,
 	Text,
-	Tooltip,
-	useColorMode,
 	useColorModeValue
 } from '@chakra-ui/react';
 import axios from 'axios';
 import { NextPage } from 'next';
+import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { Footer } from '../components/Footer';
 import { Heading1, Heading2 } from '../components/Headings';
@@ -20,7 +19,6 @@ import { PageContainer } from '../components/PageContainer';
 import { skills } from '../lib/constants';
 
 const About: NextPage = () => {
-	const { colorMode } = useColorMode();
 	const [cat, setCat] = useState('');
 
 	const loadCat = () => {
@@ -39,6 +37,10 @@ const About: NextPage = () => {
 
 	return (
 		<PageContainer>
+			<Head>
+				<title>About me - drgato.me</title>
+			</Head>
+
 			{/** About me */}
 			<Heading1>About drgato</Heading1>
 			<Text as={'p'} fontSize={'lg'} maxW={'860px'}>

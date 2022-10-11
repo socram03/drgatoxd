@@ -77,11 +77,26 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 	return (
 		<ChakraProvider theme={theme}>
 			<Head>
+				<link rel="icon" href="/favicon.ico" />
+				<meta name="title" content="drgato - a self-taught developer" />
 				<meta
-					name="viewport"
-					content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+					name="description"
+					content="A self-taught developer who likes to program Discord bots and design websites for people."
 				/>
-				<meta name="HandheldFriendly" content="true" />
+				<meta property="og:type" content="website" />
+				<meta property="og:url" content="https://drgato.me/" />
+				<meta property="og:title" content="drgato - a self-taught developer" />
+				<meta
+					property="og:description"
+					content="A self-taught developer who likes to program Discord bots and design websites for people."
+				/>
+				<meta property="twitter:card" content="summary_large_image" />
+				<meta property="twitter:url" content="https://drgato.me/" />
+				<meta property="twitter:title" content="drgato - a self-taught developer" />
+				<meta
+					property="twitter:description"
+					content="A self-taught developer who likes to program Discord bots and design websites for people."
+				/>
 			</Head>
 			<NextProgressbar
 				options={{ easing: 'cubic-bezier(0.455, 0.03, 0.515, 0.955)', speed: 200 }}

@@ -8,7 +8,7 @@ export function Tags({ status }: { status: UserStatus }) {
 		<Tag key={1} py={1} px={2} bg={'#5865F2'}>
 			<Icon id={'discord'} v={'b'} s={'1rem'} c={'white'} pr={'3px'} pt={'1px'} />
 			<Text color={'white'} fontSize={'md'}>
-				{status.status == 'dnd' ? 'DND' : capitalize(status.status)}
+				{status.status == 'dnd' ? 'dnd' : capitalize(status.status)}
 			</Text>
 		</Tag>,
 		<Tag key={2} py={1} px={2} bg={'purple.600'}>

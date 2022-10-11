@@ -20,6 +20,7 @@ import { Heading1, Heading2 } from '../components/Headings';
 import { Footer } from '../components/Footer';
 import { CustomLink } from '../components/CustomLink';
 import { PageContainer } from '../components/PageContainer';
+import Head from 'next/head';
 
 const Home: NextPage = () => {
 	const [status, setStatus] = React.useState<UserStatus>({ status: 'offline' });
@@ -28,7 +29,7 @@ const Home: NextPage = () => {
 	React.useEffect(() => {
 		axios
 			.get(
-				'https://nocache.advaith.workers.dev?url=https://japi.rest/discord/v1/user/900970190504857641'
+				'https://nocache.advaith.workers.dev?url=https://japi.rest/discord/v1/user/883105651407077386'
 			)
 			.then(({ data }) => {
 				setStatus({
@@ -49,6 +50,10 @@ const Home: NextPage = () => {
 	return (
 		<div>
 			<PageContainer>
+				<Head>
+					<title>Hi, I&apos;m drgato!</title>
+				</Head>
+
 				{/** Intro */}
 				<Stack align={'center'} direction={{ base: 'column', md: 'row' }} spacing={10}>
 					<Stack direction={'column'} gap={5} maxW={'625px'}>

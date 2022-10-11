@@ -1,6 +1,7 @@
 import { Flex, Input, ScaleFade, SimpleGrid, Spinner, Text } from '@chakra-ui/react';
 import axios from 'axios';
 import { NextPage } from 'next';
+import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { Card } from '../components/Card';
 import { Footer } from '../components/Footer';
@@ -29,6 +30,10 @@ const About: NextPage = () => {
 
 	return (
 		<PageContainer>
+			<Head>
+				<title>Repositories - drgato.me</title>
+			</Head>
+
 			{/** Title */}
 			<Heading1>My repos</Heading1>
 			<Text as={'p'} fontSize={'lg'} maxW={'860px'}>
