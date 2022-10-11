@@ -1,52 +1,65 @@
-interface IconProps {
+import { Text } from '@chakra-ui/react';
+import type { Property } from 'csstype';
+
+export function Icon({
+	v,
+	id,
+	className,
+	c,
+	m,
+	s,
+	pt,
+	pb,
+	pl,
+	pr,
+	onMouseEnter,
+	onMouseLeave,
+	onClick,
+	cursor
+}: {
+	v?: 's' | 'r' | 'l' | 't' | 'd' | 'b';
 	id: string;
-	className: string;
-	type: 'solid' | 'regular' | 'brands' | 'duotone' | 'light';
-	m: 'Left' | 'Right' | 'Top' | 'Bottom' | 'None';
-	color: string;
-	style: React.CSSProperties;
-}
+	className?: string;
+	c?: Property.Color;
+	m?: 'Left' | 'Right' | 'Top' | 'Bottom' | 'none';
+	s?: string;
+	pt?: string;
+	pb?: string;
+	pl?: string;
+	pr?: string;
+	onMouseEnter?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+	onMouseLeave?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+	onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+	cursor?: 'pointer';
+}) {
+	if (!v) v = 's';
+	if (!c) c = 'inherit';
+	if (!m) m = 'none';
+	if (!s) s = '.8rem';
+	if (!pt) pt = '0';
+	if (!pb) pb = '0';
+	if (!pl) pl = '0';
+	if (!pr) pr = '0';
 
-export const Icon = ({ id, className, type, m, color, style }: Partial<IconProps>) => {
-	if (!id) id = 'circle';
-	if (!type) type = 'solid';
-	if (!m) m = 'None';
-	if (!className) className = '';
-	if (!style) style = {};
-
-	const margin = { [`margin${m}`]: '0.5rem' };
 	const styleToAssign = {
-		...margin,
-		...style,
-		color: color || 'inherit'
+		[`margin${m}`]: '0.5rem'
 	};
 
 	return (
-		<i
+		<Text
+			as={'i'}
+			onMouseEnter={onMouseEnter}
+			onMouseLeave={onMouseLeave}
+			onClick={onClick}
+			cursor={cursor}
+			className={`fa${v} fa-${id}${className?.length ? ` ${className}` : ''}`}
 			style={styleToAssign}
-			className={`fa-${type} fa-${id}${className.length ? ` ${className}` : ''}`}
-		></i>
+			color={c}
+			fontSize={s}
+			paddingTop={pt}
+			paddingBottom={pb}
+			paddingLeft={pl}
+			paddingRight={pr}
+		></Text>
 	);
-};
-
-export const GitIcon = () => (
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		fill="none"
-		height="28"
-		viewBox="0 0 28 20"
-		width="28"
-		aria-hidden="true"
-		className="git-icon"
-	>
-		<circle
-			className="git-icon-circle"
-			cx="14"
-			cy="10"
-			fill="#121212"
-			r="5"
-			stroke="#dadfe9"
-			strokeWidth="2"
-		></circle>
-	</svg>
-);
+}
