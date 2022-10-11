@@ -36,7 +36,7 @@ const Home: NextPage = () => {
 					status: data.presence.status,
 					vscode: data.presence.activities
 						.find((a: any) => a.applicationId == '383226320970055681')
-						?.state.split(' ')
+						?.state?.split(' ')
 						.slice(1)
 						.join(' '),
 					playing: data.presence.activities.find(
