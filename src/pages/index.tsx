@@ -76,7 +76,7 @@ export default function Home() {
 						<Heading fontWeight={'semibold'} fontSize={'2xl'}>
 							I&apos;m drgato 👋
 						</Heading>
-						<Text>Check info about me! 💻</Text>
+						<Text>Know more about me! 💻</Text>
 					</Stack>
 				</Container>
 
