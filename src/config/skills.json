@@ -1,0 +1,54 @@
+[
+	{
+		"name": "HTML",
+		"key": "html"
+	},
+	{
+		"name": "CSS",
+		"key": "css"
+	},
+	{
+		"name": "Sass",
+		"key": "sass"
+	},
+	{
+		"name": "Javascript",
+		"key": "js"
+	},
+	{
+		"name": "TypeScript",
+		"key": "ts"
+	},
+	{
+		"name": "Node.js",
+		"key": "nodejs"
+	},
+	{
+		"name": "CoffeeScript",
+		"key": "coffeescript"
+	},
+	{
+		"name": "Express",
+		"key": "express"
+	},
+	{
+		"name": "React",
+		"key": "react"
+	},
+	{
+		"name": "Next.js",
+		"key": "nextjs"
+	},
+	{
+		"name": "MongoDB",
+		"key": "mongodb"
+	},
+	{
+		"name": "GraphQL",
+		"key": "graphql"
+	},
+	{
+		"name": "Git",
+		"key": "git"
+	}
+]
