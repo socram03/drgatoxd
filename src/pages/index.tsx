@@ -8,6 +8,7 @@ import {
 	Heading,
 	Image,
 	SimpleGrid,
+	Spinner,
 	Stack,
 	Text,
 	Tooltip,
@@ -81,12 +82,12 @@ export default function Home() {
 				</Container>
 
 				{/* GitHub Link */}
-				<Container align={'center'} as={Link} href={links.github}>
+				<Container align={'center'} as={Link} isNotExternal href={'/repos'}>
 					<Text fontSize={'6xl'}>
 						<FaGithub />
 					</Text>
 					<Stack align={{ base: 'left', md: 'center' }}>
-						<Heading>GitHub</Heading>
+						<Heading>Repos</Heading>
 						<Text opacity={0.7}>@drgatoxd</Text>
 					</Stack>
 				</Container>
@@ -160,7 +161,13 @@ export default function Home() {
 					h={'full'}
 					onClick={toggleColorMode}
 				>
-					<Text fontSize={'6xl'}>{colorMode == 'dark' ? <MdDarkMode /> : <MdLightMode />}</Text>
+					<Text
+						fontSize={'6xl'}
+						transition={'.6s cubic-bezier(0.22, 1, 0.36, 1)'}
+						transform={`rotate(${colorMode == 'dark' ? '0deg' : '-45deg'})`}
+					>
+						{colorMode == 'dark' ? <MdDarkMode /> : <MdLightMode />}
+					</Text>
 					<Stack align={{ base: 'left', md: 'center' }}>
 						<Heading>Theme</Heading>
 						<Text opacity={0.7}>{colorMode == 'dark' ? 'Dark' : 'Light'}</Text>
@@ -255,8 +262,9 @@ export default function Home() {
 								<Image
 									w={'48px'}
 									h={'48px'}
-									src={`https://skillicons.dev/icons?i=${sk.key}`}
+									src={`https://skillicons.dev/icons?i=${sk.key}&theme=${colorMode}`}
 									alt={sk.name}
+									fallback={<Spinner size={'xl'} />}
 								/>
 							</Tooltip>
 						))}

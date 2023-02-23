@@ -3,7 +3,7 @@ import * as Chakra from '@chakra-ui/react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { Navbar } from '@drgato/components/Navbar';
-import { SlideFade } from '@chakra-ui/react';
+import { Scale } from '@drgato/components/Transition';
 import theme from '@drgato/theme';
 
 export default function App({ Component, pageProps, router }: AppProps) {
@@ -21,9 +21,9 @@ export default function App({ Component, pageProps, router }: AppProps) {
 				<meta name={'theme-color'} content={'#d8945f'} />
 			</Head>
 			<Navbar />
-			<SlideFade in key={router.pathname}>
+			<Scale initialScale={router.pathname == '/' ? 1.04 : 0.96} in key={router.pathname}>
 				<Component {...pageProps} />
-			</SlideFade>
+			</Scale>
 		</Chakra.ChakraProvider>
 	);
 }

@@ -60,7 +60,7 @@ const theme: DeepPartial<Theme> = {
 		}
 	},
 	fonts: {
-		heading: 'Satoshi',
+		heading: '"Product Sans"',
 		body: 'Satoshi'
 	},
 	semanticTokens: {
