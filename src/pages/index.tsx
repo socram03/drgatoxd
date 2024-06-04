@@ -74,7 +74,7 @@ export default function Home() {
 						<Heading fontWeight={'semibold'} fontSize={'2xl'}>
 							I&apos;m Marcos Susaña 👋
 						</Heading>
-						<Text>Know more about me! 💻</Text>
+						<Text>JavaScript's ecosystem is my passion, python is a rare treat, looking for the zenith of the development experience.</Text>
 					</Stack>
 				</Container>
 

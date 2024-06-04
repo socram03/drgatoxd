@@ -10,7 +10,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
 	return (
 		<Chakra.ChakraProvider theme={theme}>
 			<Head>
-				<title>Socram09 - A Discord API solution disegner</title>
+				<title>socram09 - A Discord API Solutions Designer</title>
 				<meta
 					name={'description'}
 					content={'A lazy cat lover 🐈'}
