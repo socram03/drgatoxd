@@ -14,7 +14,7 @@ import {
 	Tooltip,
 	useColorMode
 } from '@chakra-ui/react';
-import { FaDiscord, FaGithub, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaDiscord, FaGithub, FaLinkedinIn, FaTwitter, FaCodeBranch } from 'react-icons/fa';
 import { MdDarkMode, MdLightMode } from 'react-icons/md';
 import { Container } from '@drgato/components/Home';
 import Link from 'next/link';
@@ -25,9 +25,9 @@ import skills from '@drgato/config/skills.json';
 export default function Home() {
 	const { colorMode, toggleColorMode } = useColorMode();
 
-	const isDrgatoBirthday = () => {
+	const isBirthday = () => {
 		const today = new Date();
-		const birthday = new Date(2007, 8, 18);
+		const birthday = new Date(2003, 9, 28);
 		return today.getDate() == birthday.getDate() && today.getMonth() == birthday.getMonth();
 	};
 
@@ -40,10 +40,10 @@ export default function Home() {
 				fontSize={'6xl'}
 				lineHeight={'1'}
 			>
-				Welcome to drgato&apos;s website!
+				Welcome to socram&apos;s website!
 			</Heading>
 
-			{isDrgatoBirthday() && (
+			{isBirthday() && (
 				<Alert status={'success'}>
 					<AlertIcon />
 					Hey! It&apos;s my birthday today, wohoo! 🎉
@@ -62,20 +62,17 @@ export default function Home() {
 				<Container
 					direction={'column'}
 					gridColumn={{ base: 'unset', md: 'span 2 / span 2' }}
-					as={Link}
-					href={links.whoami}
-					isNotExternal
 				>
 					<Avatar
 						size={'xl'}
 						src={
-							'https://cdn.discordapp.com/guilds/995415463683182702/users/742460533818654791/avatars/2cabfda9eef3593923dcc447837fb931.png'
+							'/img/avatar.png'
 						}
-						name={'drgato'}
+						name={'socram avatar'}
 					/>
 					<Stack>
 						<Heading fontWeight={'semibold'} fontSize={'2xl'}>
-							I&apos;m drgato 👋
+							I&apos;m Marcos Susaña 👋
 						</Heading>
 						<Text>Know more about me! 💻</Text>
 					</Stack>
@@ -88,7 +85,7 @@ export default function Home() {
 					</Text>
 					<Stack align={{ base: 'left', md: 'center' }}>
 						<Heading>Repos</Heading>
-						<Text opacity={0.7}>@drgatoxd</Text>
+						<Text opacity={0.7}>@socram03</Text>
 					</Stack>
 				</Container>
 
@@ -128,28 +125,26 @@ export default function Home() {
 						>
 							<FaTwitter />
 						</Container>
-
-						<Container
+						<Container 
 							w={'full'}
 							h={'full'}
 							justify={'center'}
 							align={'center'}
 							as={Link}
-							href={links.rrss.instagram}
-						>
-							<FaInstagram />
-						</Container>
-
-						<Container
+							href={links.rrss.twitter}
+					>
+						<FaLinkedinIn/>
+					</Container>
+					<Container 
 							w={'full'}
 							h={'full'}
 							justify={'center'}
 							align={'center'}
 							as={Link}
-							href={links.rrss.youtube}
-						>
-							<FaYoutube />
-						</Container>
+							href={links.rrss.seyfert}
+					>
+						<FaCodeBranch/>
+					</Container>
 					</SimpleGrid>
 				</Stack>
 
@@ -220,7 +215,7 @@ export default function Home() {
 					<Flex fontFamily={'mono'} p={3}>
 						<Text>
 							<Text as={'span'} color={colorMode == 'dark' ? 'green.200' : 'green.600'}>
-								$ cat drgato.txt
+								$ cat lazy.txt
 								<Text as={'span'} animation={'blinking 1s infinite'}>
 									_
 								</Text>
@@ -228,13 +223,13 @@ export default function Home() {
 							<br />
 							<br />
 							<Text as={'span'}>
-								&gt; Learning Next.js and React.
-								<br />
-								&gt; Ocasional streamer.
-								<br />
-								&gt; Working at Mind Shop.
+								&gt; Building Seyfert.
 								<br />
 								&gt; I love cats.
+								<br />
+								&gt; Typescript black mage.
+								<br />
+								&gt; Original by <Link href='https://github.com/drgatooo'>drgato</Link>
 								<br />
 								<br />
 								<Text as={'span'} opacity={0.5}>

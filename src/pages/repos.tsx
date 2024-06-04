@@ -48,7 +48,7 @@ export default function Repos() {
 		} else {
 			on();
 			axios
-				.get<Repo[]>('https://api.github.com/users/drgatoxd/repos')
+				.get<Repo[]>('https://api.github.com/users/socram03/repos')
 				.then(res => {
 					setRepos(res.data);
 					localStorage.setItem('repos', JSON.stringify(res.data));
@@ -75,7 +75,7 @@ export default function Repos() {
 				<Text fontSize={'sm'}>
 					Check{' '}
 					<Link isExternal href={links.github}>
-						@drgatoxd
+						@socram03
 					</Link>{' '}
 					on GitHub for more.
 				</Text>

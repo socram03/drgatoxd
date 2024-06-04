@@ -4,14 +4,6 @@
 		"key": "html"
 	},
 	{
-		"name": "CSS",
-		"key": "css"
-	},
-	{
-		"name": "Sass",
-		"key": "sass"
-	},
-	{
 		"name": "Javascript",
 		"key": "js"
 	},
@@ -32,20 +24,8 @@
 		"key": "express"
 	},
 	{
-		"name": "React",
-		"key": "react"
-	},
-	{
-		"name": "Next.js",
-		"key": "nextjs"
-	},
-	{
 		"name": "MongoDB",
 		"key": "mongodb"
-	},
-	{
-		"name": "GraphQL",
-		"key": "graphql"
 	},
 	{
 		"name": "Git",

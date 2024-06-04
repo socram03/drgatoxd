@@ -10,13 +10,13 @@ export default function App({ Component, pageProps, router }: AppProps) {
 	return (
 		<Chakra.ChakraProvider theme={theme}>
 			<Head>
-				<title>drgato.me - A Discord Bot Developer</title>
+				<title>Socram09 - A Discord API solution disegner</title>
 				<meta
 					name={'description'}
-					content={'drgato is a front-end and discord bot developer. also he loves cats 🐈'}
+					content={'A lazy cat lover 🐈'}
 				/>
-				<meta name={'author'} content={'drgato'} />
-				<meta name={'keywords'} content={'drgato, drgato.me, discord, bot, developer'} />
+				<meta name={'author'} content={'socram09'} />
+				<meta name={'keywords'} content={'seyfert, seyfert.dev, discord, bot, developer'} />
 				<meta name={'viewport'} content={'width=device-width, initial-scale=1.0'} />
 				<meta name={'theme-color'} content={'#d8945f'} />
 			</Head>

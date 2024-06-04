@@ -42,7 +42,7 @@ export function Navbar() {
 					onMouseEnter={on}
 					onMouseLeave={off}
 				>
-					drgato
+					socram
 					<SlideFade in={display} offsetX={'-5px'} offsetY={0} style={{ display: 'inline-block' }}>
 						<Box>
 							<Text
@@ -51,7 +51,7 @@ export function Navbar() {
 								transition={'.2s ease'}
 								color={colorMode == 'dark' ? 'cashmere.400' : 'cashmere.500'}
 							>
-								.me
+								09
 							</Text>
 						</Box>
 					</SlideFade>
