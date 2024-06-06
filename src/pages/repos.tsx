@@ -54,7 +54,7 @@ export default function Repos() {
 			axios
 				.post('https://api.github.com/graphql', JSON.stringify({ query: graphqlQuery }), {
 					headers: {
-						'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`
+						'Authorization': `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`
 					}
 				})
 				.then(res => {
