@@ -1,9 +1,5 @@
 [
 	{
-		"name": "HTML",
-		"key": "html"
-	},
-	{
 		"name": "Javascript",
 		"key": "js"
 	},
@@ -30,5 +26,9 @@
 	{
 		"name": "Git",
 		"key": "git"
+	},
+	{
+		"name": "HTML",
+		"key": "html"
 	}
 ]

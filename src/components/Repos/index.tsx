@@ -1,6 +1,6 @@
 import { Heading, SimpleGrid, Stack, Text } from '@chakra-ui/react';
 import { VscRepo, VscRepoForked } from 'react-icons/vsc';
-import type { Repo } from '@drgato/types';
+import type { GraphqlRepo } from '@drgato/types';
 
 const langColors = {
 	JavaScript: 'yellow.500',
@@ -13,7 +13,7 @@ const langColors = {
 	Plain: 'gray.300'
 };
 
-export function RepoCard({ repo, colorMode }: { repo: Repo; colorMode: 'dark' | 'light' }) {
+export function RepoCard({ repo, colorMode }: { repo: GraphqlRepo; colorMode: 'dark' | 'light' }) {
 	return (
 		<Stack
 			h={'full'}
@@ -21,13 +21,13 @@ export function RepoCard({ repo, colorMode }: { repo: Repo; colorMode: 'dark' | 
 			p={3}
 			bg={colorMode == 'dark' ? 'whiteAlpha.50' : 'blackAlpha.50'}
 			borderBottomWidth={8}
-			borderBottomColor={langColors[repo.language as keyof typeof langColors]}
+			borderBottomColor={langColors[repo.primaryLanguage.name as keyof typeof langColors]}
 			justify={'space-between'}
 			spacing={5}
 		>
 			<Stack>
 				<Heading display={'inline-flex'} gap={1} as={'span'} fontSize={'xl'} fontWeight={'medium'}>
-					{repo.fork ? <VscRepoForked /> : <VscRepo />}
+					{<VscRepo />}
 					{repo.name}
 				</Heading>
 				<Text fontSize={'sm'}>
@@ -39,16 +39,16 @@ export function RepoCard({ repo, colorMode }: { repo: Repo; colorMode: 'dark' | 
 			<SimpleGrid columns={3}>
 				<Stack spacing={0}>
 					<Text fontWeight={'bold'}>Stars</Text>
-					<Text fontSize={'sm'}>{repo.stargazers_count}</Text>
+					<Text fontSize={'sm'}>{repo.stargazerCount}</Text>
 				</Stack>
 				<Stack spacing={0}>
 					<Text fontWeight={'bold'}>Forks</Text>
-					<Text fontSize={'sm'}>{repo.forks_count}</Text>
+					<Text fontSize={'sm'}>{repo.forkCount}</Text>
 				</Stack>
 				<Stack spacing={0}>
 					<Text fontWeight={'bold'}>Lang</Text>
-					<Text fontSize={'sm'} color={langColors[repo.language as keyof typeof langColors]}>
-						{repo.language || 'Unknown'}
+					<Text fontSize={'sm'} color={langColors[repo.primaryLanguage.name as keyof typeof langColors]}>
+						{repo.primaryLanguage.name || 'Unknown'}
 					</Text>
 				</Stack>
 			</SimpleGrid>

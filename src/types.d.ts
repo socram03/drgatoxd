@@ -123,3 +123,15 @@ export interface Organization {
 	avatar_url: string;
 	description: string;
 }
+
+
+export interface GraphqlRepo {
+	name: string;
+	description: string;
+	url: string;
+	stargazerCount: number;
+	id: string;
+	forkCount: number;
+	primaryLanguage: { name: string; }
+	updatedAt: string;
+}

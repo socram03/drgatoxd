@@ -17,24 +17,25 @@ import {
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { Page } from '@drgato/components/Page';
-import type { Repo } from '../types';
+import type { GraphqlRepo } from '../types';
 import { RepoCard } from '@drgato/components/Repos';
 import { Scale } from '@drgato/components/Transition';
 import axios from 'axios';
 import links from '@drgato/config/links.json';
+import reposName from '@drgato/config/repos.json'
 
 export default function Repos() {
 	const sortMethods = {
-		asc: (a: Repo, b: Repo) => a.name.localeCompare(b.name),
-		desc: (a: Repo, b: Repo) => b.name.localeCompare(a.name),
-		stars: (a: Repo, b: Repo) => b.stargazers_count - a.stargazers_count,
-		forks: (a: Repo, b: Repo) => b.forks_count - a.forks_count,
-		updated: (a: Repo, b: Repo) =>
-			new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
+		asc: (a: GraphqlRepo, b: GraphqlRepo) => a.name.localeCompare(b.name),
+		desc: (a: GraphqlRepo, b: GraphqlRepo) => b.name.localeCompare(a.name),
+		stars: (a: GraphqlRepo, b: GraphqlRepo) => b.stargazerCount - a.stargazerCount,
+		forks: (a: GraphqlRepo, b: GraphqlRepo) => b.forkCount - a.forkCount,
+		updated: (a: GraphqlRepo, b: GraphqlRepo) =>
+			new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
 	};
 
 	const { colorMode } = useColorMode();
-	const [repos, setRepos] = useState<Repo[]>([]);
+	const [repos, setRepos] = useState<GraphqlRepo[]>([]);
 	const [search, setSearch] = useState<string>('');
 	const [fetching, { on, off }] = useBoolean();
 	const [sort, setSort] = useState<keyof typeof sortMethods>('asc');
@@ -44,14 +45,21 @@ export default function Repos() {
 		const reposExpiry = localStorage.getItem('repos_expiry');
 
 		if (repos && reposExpiry && new Date().getTime() < parseInt(reposExpiry, 10)) {
-			setRepos(JSON.parse(repos) as Repo[]);
+			setRepos(JSON.parse(repos));
 		} else {
 			on();
+			const queryAlts: string[] = ['name', 'description', 'url', 'stargazerCount', 'id', 'forkCount', 'primaryLanguage { name }', 'updatedAt'];
+			const queries = reposName.map((r, i) => { const [owner, name] = r.split('/'); return `repo${i}: repository(owner: "${owner}", name: "${name}") { ${queryAlts.join(' ')}  }`; })
+			const graphqlQuery = `{ ${queries.join(' ')} }`;
 			axios
-				.get<Repo[]>('https://api.github.com/users/socram03/repos')
+				.post('https://api.github.com/graphql', JSON.stringify({ query: graphqlQuery }), {
+					headers: {
+						'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`
+					}
+				})
 				.then(res => {
-					setRepos(res.data);
-					localStorage.setItem('repos', JSON.stringify(res.data));
+					setRepos(res.data.data);
+					localStorage.setItem('repos', JSON.stringify(res.data.data));
 					localStorage.setItem('repos_expiry', `${new Date().getTime() + 1000 * 60 * 60}`);
 				})
 				.catch(err => console.error(err))
@@ -141,7 +149,7 @@ export default function Repos() {
 			</Stack>
 
 			<SimpleGrid minChildWidth={'240px'} gap={5}>
-				{repos
+				{Object.values(repos)
 					.filter(repo => repo.name.toLowerCase().includes(search.toLowerCase()))
 					.sort(sortMethods[sort])
 					.map((repo, i) => (
